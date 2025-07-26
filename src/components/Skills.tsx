@@ -18,51 +18,55 @@ import { Progress } from '@/components/ui/progress';
 export const Skills = () => {
   const skillCategories = [
     {
-      title: "Frontend Development",
+      title: "Frontend Mastery",
       icon: Layout,
       gradient: "bg-gradient-primary",
       skills: [
-        { name: "React.js", level: 90, icon: "⚛️" },
-        { name: "JavaScript/ES6+", level: 85, icon: "🟨" },
-        { name: "TypeScript", level: 80, icon: "🔷" },
-        { name: "Tailwind CSS", level: 95, icon: "🎨" },
-        { name: "HTML5/CSS3", level: 90, icon: "🌐" }
+        "React.js & Ecosystem",
+        "TypeScript & JavaScript",
+        "Next.js & SSR",
+        "Tailwind CSS & Styled Components",
+        "State Management (Redux, Zustand)",
+        "Performance Optimization"
       ]
     },
     {
-      title: "Backend Development",
+      title: "Backend Architecture",
       icon: Server,
       gradient: "bg-gradient-secondary",
       skills: [
-        { name: "Node.js", level: 85, icon: "🟢" },
-        { name: "Express.js", level: 80, icon: "⚡" },
-        { name: "MongoDB", level: 75, icon: "🍃" },
-        { name: "REST APIs", level: 85, icon: "🔗" },
-        { name: "Authentication", level: 80, icon: "🔐" }
+        "Node.js & Express.js",
+        "MongoDB & Mongoose",
+        "RESTful API Design",
+        "Authentication & Security",
+        "Database Optimization",
+        "Microservices Patterns"
       ]
     },
     {
-      title: "Development Tools",
+      title: "Development Ecosystem",
       icon: GitBranch,
       gradient: "bg-gradient-accent",
       skills: [
-        { name: "Git & GitHub", level: 90, icon: "📚" },
-        { name: "VS Code", level: 95, icon: "💙" },
-        { name: "Firebase", level: 75, icon: "🔥" },
-        { name: "Vercel", level: 85, icon: "▲" },
-        { name: "Postman", level: 80, icon: "📮" }
+        "Git & Version Control",
+        "CI/CD Pipelines",
+        "Docker & Containerization",
+        "Cloud Deployment (Vercel, AWS)",
+        "Testing (Jest, Cypress)",
+        "Performance Monitoring"
       ]
     },
     {
-      title: "Soft Skills",
+      title: "Professional Skills",
       icon: Brain,
       gradient: "bg-gradient-dark",
       skills: [
-        { name: "Problem Solving", level: 90, icon: "🧩" },
-        { name: "Team Collaboration", level: 85, icon: "🤝" },
-        { name: "Fast Learning", level: 95, icon: "🚀" },
-        { name: "Communication", level: 80, icon: "💬" },
-        { name: "Project Management", level: 75, icon: "📋" }
+        "Problem-Solving Mindset",
+        "Agile Methodologies",
+        "Code Review & Mentoring",
+        "Technical Communication",
+        "Product Thinking",
+        "Continuous Learning"
       ]
     }
   ];
@@ -95,14 +99,13 @@ export const Skills = () => {
     <section className="py-20 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-space text-4xl md:text-6xl font-bold mb-6">
-            Skills & <span className="text-transparent bg-gradient-primary bg-clip-text">Expertise</span>
+        <div className="text-center mb-20">
+          <h2 className="font-space text-5xl md:text-7xl font-bold mb-8">
+            Technical <span className="text-transparent bg-gradient-primary bg-clip-text">Arsenal</span>
           </h2>
-          <p className="font-inter text-xl text-muted-foreground max-w-3xl mx-auto">
-            A comprehensive toolkit for building modern, scalable web applications
+          <p className="font-inter text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Mastering the full spectrum of modern web development with precision and creative excellence
           </p>
-          <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full mt-6" />
         </div>
 
         {/* Skills Grid */}
@@ -112,45 +115,36 @@ export const Skills = () => {
             return (
               <Card 
                 key={category.title}
-                className="p-8 bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-500 hover:shadow-glow group"
-                style={{ animationDelay: `${categoryIndex * 0.1}s` }}
+                className="group relative p-8 bg-card/30 backdrop-blur-xl border border-primary/10 hover:border-primary/30 transition-all duration-700 hover:shadow-glow overflow-hidden"
+                style={{ animationDelay: `${categoryIndex * 0.15}s` }}
               >
+                {/* Background gradient overlay */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700">
+                  <div className={`w-full h-full ${category.gradient}`} />
+                </div>
+
                 {/* Category Header */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className={`${category.gradient} w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-8 h-8 text-white" />
+                <div className="relative flex items-center gap-6 mb-8">
+                  <div className={`${category.gradient} w-20 h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}>
+                    <Icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="font-space text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                  <h3 className="font-space text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-500">
                     {category.title}
                   </h3>
                 </div>
 
                 {/* Skills List */}
-                <div className="space-y-6">
+                <div className="relative space-y-4">
                   {category.skills.map((skill, skillIndex) => (
                     <div 
-                      key={skill.name}
-                      className="space-y-2"
-                      style={{ animationDelay: `${(categoryIndex * 0.1) + (skillIndex * 0.05)}s` }}
+                      key={skill}
+                      className="flex items-center gap-4 p-3 rounded-lg bg-muted/5 border border-primary/5 hover:border-primary/20 transition-all duration-300 group/skill"
+                      style={{ animationDelay: `${(categoryIndex * 0.15) + (skillIndex * 0.05)}s` }}
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <span className="text-lg">{skill.icon}</span>
-                          <span className="font-inter font-medium text-foreground">{skill.name}</span>
-                        </div>
-                        <span className="text-sm text-muted-foreground font-mono">{skill.level}%</span>
-                      </div>
-                      
-                      <div className="relative">
-                        <Progress 
-                          value={skill.level} 
-                          className="h-2 bg-muted/30"
-                        />
-                        <div 
-                          className={`absolute top-0 left-0 h-2 ${category.gradient} rounded-full transition-all duration-1000 ease-out`}
-                          style={{ width: `${skill.level}%` }}
-                        />
-                      </div>
+                      <div className="w-2 h-2 rounded-full bg-gradient-primary opacity-60 group-hover/skill:opacity-100 transition-opacity duration-300" />
+                      <span className="font-inter font-medium text-foreground group-hover/skill:text-primary transition-colors duration-300">
+                        {skill}
+                      </span>
                     </div>
                   ))}
                 </div>

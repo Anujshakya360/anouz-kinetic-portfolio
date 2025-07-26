@@ -85,15 +85,14 @@ export const Contact = () => {
     <section className="py-20 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-space text-4xl md:text-6xl font-bold mb-6">
-            Let's Build Something{' '}
-            <span className="text-transparent bg-gradient-accent bg-clip-text">Impactful</span>
+        <div className="text-center mb-20">
+          <h2 className="font-space text-5xl md:text-7xl font-bold mb-8">
+            Let's Create{' '}
+            <span className="text-transparent bg-gradient-accent bg-clip-text">Something Extraordinary</span>
           </h2>
-          <p className="font-inter text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to bring your ideas to life? Let's collaborate and create something extraordinary together.
+          <p className="font-inter text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            Transform your vision into a digital reality. Whether it's a groundbreaking web application or an innovative user experience, let's build it together.
           </p>
-          <div className="w-24 h-1 bg-gradient-accent mx-auto rounded-full mt-6" />
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12">
@@ -157,93 +156,108 @@ export const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="p-8 bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-glow">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
+            <Card className="relative p-10 bg-card/30 backdrop-blur-xl border border-primary/20 hover:border-primary/40 transition-all duration-700 hover:shadow-glow overflow-hidden group">
+              {/* Neon glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              <div className="relative z-10">
+                <div className="text-center mb-8">
+                  <h3 className="font-space text-3xl font-bold text-foreground mb-4">
+                    Start Your Project
+                  </h3>
+                  <p className="font-inter text-muted-foreground">
+                    Every great project begins with a conversation
+                  </p>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-8">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-3">
+                      <Label 
+                        htmlFor="name" 
+                        className="text-foreground font-medium text-sm tracking-wide uppercase"
+                      >
+                        Full Name
+                      </Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        required
+                        className="bg-input/30 backdrop-blur-sm border-primary/20 focus:border-primary focus:shadow-glow transition-all duration-500 h-12 text-lg"
+                      />
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <Label 
+                        htmlFor="email" 
+                        className="text-foreground font-medium text-sm tracking-wide uppercase"
+                      >
+                        Email Address
+                      </Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="your@email.com"
+                        required
+                        className="bg-input/30 backdrop-blur-sm border-primary/20 focus:border-primary focus:shadow-glow transition-all duration-500 h-12 text-lg"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
                     <Label 
-                      htmlFor="name" 
-                      className="text-foreground font-medium"
+                      htmlFor="subject" 
+                      className="text-foreground font-medium text-sm tracking-wide uppercase"
                     >
-                      Your Name
+                      Project Type
                     </Label>
                     <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
                       onChange={handleChange}
-                      placeholder="Enter your name"
+                      placeholder="Web App, Landing Page, E-commerce..."
                       required
-                      className="bg-input/50 backdrop-blur-sm border-primary/20 focus:border-primary transition-colors duration-300"
+                      className="bg-input/30 backdrop-blur-sm border-primary/20 focus:border-primary focus:shadow-glow transition-all duration-500 h-12 text-lg"
                     />
                   </div>
-                  
-                  <div className="space-y-2">
+
+                  <div className="space-y-3">
                     <Label 
-                      htmlFor="email" 
-                      className="text-foreground font-medium"
+                      htmlFor="message" 
+                      className="text-foreground font-medium text-sm tracking-wide uppercase"
                     >
-                      Email Address
+                      Project Details
                     </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
                       onChange={handleChange}
-                      placeholder="Enter your email"
+                      placeholder="Tell me about your vision, goals, timeline, and any specific requirements..."
                       required
-                      className="bg-input/50 backdrop-blur-sm border-primary/20 focus:border-primary transition-colors duration-300"
+                      rows={6}
+                      className="bg-input/30 backdrop-blur-sm border-primary/20 focus:border-primary focus:shadow-glow transition-all duration-500 resize-none text-lg"
                     />
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <Label 
-                    htmlFor="subject" 
-                    className="text-foreground font-medium"
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full h-14 bg-gradient-accent hover:shadow-accent-glow transition-all duration-500 hover:scale-[1.02] group/btn relative overflow-hidden"
                   >
-                    Subject
-                  </Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="What's this about?"
-                    required
-                    className="bg-input/50 backdrop-blur-sm border-primary/20 focus:border-primary transition-colors duration-300"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label 
-                    htmlFor="message" 
-                    className="text-foreground font-medium"
-                  >
-                    Message
-                  </Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about your project or idea..."
-                    required
-                    rows={6}
-                    className="bg-input/50 backdrop-blur-sm border-primary/20 focus:border-primary transition-colors duration-300 resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-gradient-accent hover:shadow-accent-glow transition-all duration-300 hover:scale-[1.02] group"
-                >
-                  <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  Send Message
-                </Button>
-              </form>
+                    <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
+                    <Send className="w-6 h-6 mr-3 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                    <span className="text-lg font-semibold">Launch Project</span>
+                  </Button>
+                </form>
+              </div>
             </Card>
           </div>
         </div>
